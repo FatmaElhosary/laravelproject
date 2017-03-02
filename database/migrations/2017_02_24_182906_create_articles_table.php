@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->boolean('published');
-           //$table->timestamp('published_at');
+            $table->timestamp('published_at');
             $table->timestamps();
         });
     }
@@ -31,8 +31,8 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            //
-        });
+//        Schema::create('articles', function (Blueprint $table) {
+//            //
+//        });
     }
 }

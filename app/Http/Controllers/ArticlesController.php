@@ -9,14 +9,20 @@ use Illuminate\Http\Request;
  //use Illuminate\Routing\Controller as BaseController;
  //use App\User;
  //use Carbon\Carbon;
-
+use Auth;
 
 //use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        
+}
    public function index()
    {
+       
 $articles=Article::latest()->get();
 return view('articles.index',compact('articles'));
         
@@ -32,6 +38,10 @@ return view('articles.show',compact('article'));
    }
    public function create()
    {
+       if(Auth::guest())
+       {
+           return redirect('articles');
+       }
 return view('articles.create' );
         
 
@@ -43,6 +53,7 @@ return view('articles.create' );
       // $input= Request::all();     
       //$input['published_at']= Carbon::now(); 
        Article::create($request->all());
+       Auth::user()->article()->save($article);
        return redirect('articles');
         
 

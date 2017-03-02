@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateArticlesTable extends Migration
 {
-    /**
+    /** 
      * Run the migrations.
      *
      * @return void
@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->boolean('published');
+           //$table->timestamp('published_at');
             $table->timestamps();
         });
     }

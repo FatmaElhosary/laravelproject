@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Article;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 //use App\Http\Requests;
  use App\Http\Controllers\Controller;
+ use App\Http\Requests\CreateArticleRequest;
  //use Illuminate\Routing\Controller as BaseController;
  //use App\User;
- use Carbon\Carbon;
-use Request;
+ //use Carbon\Carbon;
+
 
 //use Illuminate\Http\Request;
 
@@ -36,24 +37,32 @@ return view('articles.create' );
 
    }
 
-    public function store()
+    public function store(CreateArticleRequest $request)
    {
         //$input = $request->only(['title', 'body']);
-       $input= Request::all();     
+      // $input= Request::all();     
       //$input['published_at']= Carbon::now(); 
-      Article::create($input);
+       Article::create($request->all());
        return redirect('articles');
         
 
    }
-//    public function store(Reqest $request)
-//{
-//$title=$request->get('title');
-//$body=$request->get('body');
-//$article=['title'=>$title,'body'=>$body];
-//Article::create($article);
-//}
-   
+    public function edit($id)
+   {
+       
+      $article=Article::findOrFail($id);
+       return view('articles.edit',compact('article'));
+        
+
+   }
+     public function update($id, CreateArticleRequest $request)
+   {
+       
+      $article=Article::findOrFail($id);
+      $article->update($request->all());
+      return redirect('articles');
+   } 
+
    
    }
 

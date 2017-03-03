@@ -31,7 +31,10 @@ Route::get('articles/create', 'ArticlesController@create');
 Route::get('articles/{id}', 'ArticlesController@show');
 Route::post('articles', 'ArticlesController@store');
 Route::get('articles/{id}/edit', 'ArticlesController@edit');
+Route::get('articles/{id}/destroy', 'ArticlesController@destroy');
 Route::resource('articles', 'ArticlesController');
+Route::resource('posts', 'postController');
+
 //Route::controllers([
 //   'auth' => 'Auth\AuthController',
 //    'password'=>'Auth\PasswordController',

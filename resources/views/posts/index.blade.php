@@ -13,28 +13,16 @@
   <p>posts that belongs to specific Category Article</p>
   
  
-  
+ @foreach($posts as $post)
   <div class="list-group">
-  <a href="#" class="list-group-item active">
-    <h4 class="list-group-item-heading">Article Name</h4>
-    <p class="list-group-item-text">Body Here .........................................end Body</p>
+  <a href="{{url('/posts',$post->id)}}" class="list-group-item active">
+      <h4 class="list-group-item-heading">{{$post->body}}</h4></a>
  <br>
       <button class="btn btn-info" herf="#" > edit</button>
-      <button class="btn btn-danger" herf="#" > delete</button>
-  </a>
-     
+      <button class="btn btn-danger" herf="#" > delete</button> 
 </div>
-  <div class="list-group">
-      
-  <a href="#" class="list-group-item active">
-    <h4 class="list-group-item-heading">Article Name</h4>
-    <p class="list-group-item-text">Body Here .........................................end Body</p>
-    <br> 
-    <button class="btn btn-info" > edit</button>
-      <button class="btn btn-danger" > delete</button>
-  </a>
-      
-</div>
+ @endforeach
+  
 </div>
             
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

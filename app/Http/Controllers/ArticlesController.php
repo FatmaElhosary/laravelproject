@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Article;
+use App\post;
 use Illuminate\Http\Request;
 //use App\Http\Requests;
  use App\Http\Controllers\Controller;
@@ -10,6 +11,7 @@ use Illuminate\Http\Request;
  //use App\User;
  //use Carbon\Carbon;
 use Auth;
+use Session;
 
 //use Illuminate\Http\Request;
 
@@ -26,15 +28,14 @@ class ArticlesController extends Controller
 $articles=Article::latest()->get();
 return view('articles.index',compact('articles'));
         
-        
+         
    }
     
  public function show($id)
-   {
+   {  
 $article=Article::findOrFail($id);
 return view('articles.show',compact('article'));
-        
-   //return $article;     
+             
    }
    public function create()
    {
@@ -55,6 +56,8 @@ return view('articles.create' );
        Article::create($request->all());
        Auth::user()->article()->save($article);
        return redirect('articles');
+        //Session::flash('flash_message', 'Task successfully added!');
+
         
 
    }
@@ -74,7 +77,17 @@ return view('articles.create' );
       return redirect('articles');
    } 
 
-   
+    public function destroy($id)
+    {
+$article=Article::findOrFail($id);
+    $article->delete();
+//Article::destroy($id);
+
+   // Session::flash('flash_message', 'Task successfully deleted!');
+//return redirect()->route('articles.index')->with('alert-success','Data has been Edited!!');
+        return redirect('articles');
+
+    }
    }
 
  

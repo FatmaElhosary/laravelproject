@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class comment extends Model
 {
-    //
+    protected $fillable = [
+        'body', 'user_id', 'article_id','post_id',
+    ];
+     public function post()
+    {
+        return $this->belongsTo('App\Post');
+    }
 }

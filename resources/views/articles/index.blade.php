@@ -15,7 +15,13 @@
     <p>
         <a href="{{ url('/articles', $article->id) }}" class="btn btn-info">View Article</a>
         <a href="{{  route('articles.edit', $article->id) }}" class="btn btn-primary">Edit Article</a>
-         <a href="{{  route('articles.destroy', $article->id) }}" class="btn btn-primary">Delete Article</a>
+         <form class="form-horizontal" role="form" method="POST" action="{{route('articles.destroy', $article->id) }}">
+                        {{ csrf_field() }}
+   
+<button type="submit" class="btn btn-primary">
+                                    Delete Article
+                            </button>
+                          </form>  
     </p>
     <hr>
 </article>

@@ -82,11 +82,10 @@ return view('articles.create' );
 
     public function destroy($id)
     {
-$article=Article::findOrFail($id);
-    $article->delete();
-//Article::destroy($id);
-
-   // Session::flash('flash_message', 'Task successfully deleted!');
+//$article=Article::findOrFail($id);
+   // $article->delete();
+Article::destroy($id);
+// // Session::flash('flash_message', 'Task successfully deleted!');
 //return redirect()->route('articles.index')->with('alert-success','Data has been Edited!!');
         return redirect('articles');
 

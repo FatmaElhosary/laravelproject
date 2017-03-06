@@ -15,7 +15,7 @@ class AddPostIdToComment extends Migration
     {
         Schema::table('comments' , function(Blueprint $table){
             $table->integer('post_id')->nullable()->after('body')->unsigned();
-           $table->foreign('post_id')->references('id')->on('posts'); 
+           $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade'); 
         });
     }
 

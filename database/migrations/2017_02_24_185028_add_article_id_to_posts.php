@@ -14,7 +14,7 @@ class AddArticleIdToPosts extends Migration {
     public function up() {
         Schema::table('posts', function(Blueprint $table) {
             $table->integer('article_id')->nullable()->after('body')->unsigned();
-            $table->foreign('article_id')->references('id')->on('articles');
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
         });
     }
 

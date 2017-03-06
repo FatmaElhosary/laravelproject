@@ -15,7 +15,7 @@ class AddArticleIdToComment extends Migration
     {
          Schema::table('comments' , function(Blueprint $table){
             $table->integer('article_id')->nullable()->after('body')->unsigned();
-           $table->foreign('article_id')->references('id')->on('articles'); 
+           $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade'); 
         });
     }
 
@@ -26,6 +26,8 @@ class AddArticleIdToComment extends Migration
      */
     public function down()
     {
-//         $table->dropColumn('article_id');
+       // $table->dropColumn('article_id');
+    //Schema::drop('pm_convo_replys');
+    //Schema::drop('pm_convo');
     }
 }

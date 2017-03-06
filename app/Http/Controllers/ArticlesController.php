@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  //use App\User;
  //use Carbon\Carbon;
 use Auth;
-use Session;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 //use Illuminate\Http\Request;
 
@@ -34,8 +34,10 @@ return view('articles.index',compact('articles'));
  public function show($id)
    {  
 $article=Article::findOrFail($id);
-return view('articles.show',compact('article'));
-             
+$posts = post::where('article_id' , $id)->get()->all();
+
+return view('articles.show',['article' => $article,'posts' => $posts]);
+            
    }
    public function create()
    {
@@ -54,8 +56,9 @@ return view('articles.create' );
       // $input= Request::all();     
       //$input['published_at']= Carbon::now(); 
        Article::create($request->all());
-       Auth::user()->article()->save($article);
-       return redirect('articles');
+//       Auth::user()->article()->save($article);
+//       \session::flash('flash_message','your article created successfully');      
+      return redirect('articles');
         //Session::flash('flash_message', 'Task successfully added!');
 
         

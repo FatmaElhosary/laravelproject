@@ -26,6 +26,6 @@ class AddArticleIdToComment extends Migration
      */
     public function down()
     {
-         $table->dropColumn('article_id');
+//         $table->dropColumn('article_id');
     }
 }

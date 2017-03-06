@@ -1,5 +1,4 @@
-@extends('app') 
-
+@extends('layouts.app')
 @section('content')
 <h1>write New Article</h1>
 <hr/>

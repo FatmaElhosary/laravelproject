@@ -26,6 +26,6 @@ class AddPostIdToComment extends Migration
      */
     public function down()
     {
-         $table->dropColumn('post_id');
+//         $table->dropColumn('post_id');
     }
 }

@@ -26,6 +26,6 @@ class AddUserIdToComment extends Migration
      */
     public function down()
     {
-        $table->dropColumn('user_id');
+//        $table->dropColumn('user_id');
     }
 }

@@ -28,8 +28,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            //
-        });
+       Schema::dropIfExists('comments');
     }
 }

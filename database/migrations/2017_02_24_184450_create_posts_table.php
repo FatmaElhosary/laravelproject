@@ -28,8 +28,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('posts');
     }
 }

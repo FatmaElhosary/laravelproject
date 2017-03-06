@@ -26,7 +26,7 @@ class CreateArticleRequest extends FormRequest
         return [
             'title'=>'required|min:3',
             'body'=>'required',
-            'published'=>'required'
+            
         ];
         
 //@if($errors->any())

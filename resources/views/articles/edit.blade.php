@@ -1,4 +1,3 @@
-<!--@extends('app')-->
 @extends('layouts.app')
 @section('content')
 <h1>Edit: {!! $article->title !!}</h1>
@@ -18,12 +17,10 @@
   <input type="checkbox" name="published" {{ old('published') ? 'checked' : ''}}> Published
                                     </label>
                                 </div>
-<!--{{Form::checkbox('published', 1,['class'=>'form-control']) }}-->
 </div>
 <div class="form-group">
 {!! Form::submit('Add Article',['class'=>'btn btn-primary form-control']) !!}
 </div>
-
 {!! Form::close() !!}
 @include('errors.list')
 @stop

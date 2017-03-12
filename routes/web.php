@@ -51,7 +51,8 @@ Route::post('posts/store', 'postController@store');
 Route::resource('articles', 'ArticlesController');
 Route::resource('posts', 'PostController');
 Route::resource('comments', 'commentsController');
-Route::get('posts/{id}/edit', 'postController@edit');
+Route::post('posts/{id}/edit', 'postController@update');
+//Route::get('posts/{id}/edit', 'postController@edit');
 
 
 //Route::controllers([

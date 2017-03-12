@@ -18,7 +18,7 @@
   <a href="{{url('/posts',$post->id)}}" class="list-group-item active">
       <h4 class="list-group-item-heading">{{$post->body}}</h4></a>
  <br>
-      <button class="btn btn-info" herf="#" > edit</button>
+      <button class="btn btn-info" herf="{{  route('posts.edit', $post->id) }}" > edit</button>
       <button class="btn btn-danger" herf="#" > delete</button> 
 </div>
  @endforeach

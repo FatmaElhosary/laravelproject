@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class post extends Model
 {
    protected $fillable = [
-         'body','user_id' ,'article_id'//temporary
+         'body','user_id' ,'article_id',//temporary
     ];
    // protected $table= "articles";
     

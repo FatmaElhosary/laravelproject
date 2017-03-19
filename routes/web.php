@@ -50,11 +50,13 @@ Route::get('articles/{id}/destroy', 'ArticlesController@destroy');
 Route::post('posts/store', 'postController@store');
 Route::resource('articles', 'ArticlesController');
 Route::resource('posts', 'PostController');
-Route::resource('comments', 'commentsController');
+Route::resource('comments', 'commentscontroller');
 //Route::post('posts/{id}', 'commentsController@index');
-//Route::get('posts/{id}/edit', 'postController@edit');
-//Route::post('comments/{id}/edit', 'commentController@update');
-//Route::post('comments/store', 'commentController@store');
+Route::get('posts/{id}/edit', 'postController@update');
+Route::post('posts/{id}/edit', 'postController@update');
+
+Route::post('comments/{id}', 'commentscontroller@update');
+Route::post('comments/store', 'commentscontroller@store');
 
 
 

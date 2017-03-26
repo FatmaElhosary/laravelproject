@@ -14,9 +14,6 @@
 </div>
 <div class="form-group">
 {!! Form::label('published','Published:') !!}
-
-                                  
-                                
 {{Form::checkbox('published',1,['class'=>'form-control']) }}
 
 </div>

@@ -12,7 +12,7 @@ class post extends Model
    // protected $table= "articles";
     
   //an article is owned by user 
-   public function comments()
+   public function comment()
     {
         return $this->hasMany('App\Comment');
     }

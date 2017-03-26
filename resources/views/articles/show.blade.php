@@ -17,7 +17,7 @@
     <tbody>
 @foreach($posts as $post)
       <tr>
-        <td>{{ $post->id }}</td>
+        <td>{{ $post->user_id }}</td>
         <td>{{ $post->body }}</td>
         <td> <a href="{{ url('/posts', $post->id) }}" class="btn btn-info">View this Post</a></td>
        @if(Auth::user()->id==$post->user_id || Auth::user()->role=='admin')

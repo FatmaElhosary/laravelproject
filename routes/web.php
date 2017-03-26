@@ -29,7 +29,9 @@ But if you use the attach function, the new Tags of the Post will be [1,2,3,4,5]
 //Route::get('/', function () {
 //    return view('home');
 //});
-
+Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+    return "this page requires that you be logged in and an Admin";
+}]);
 Route::get('singleArticle', function () {
     return view('singleArticle');
 });
@@ -42,7 +44,11 @@ Auth::routes();
 Route::get('articles', 'ArticlesController@index');
 
 Route::get('/home', 'ArticlesController@index');
-Route::get('articles/create', 'ArticlesController@create');
+Route::group(['middleware' => 'role'], function () {
+     Route::resource('articles', 'ArticlesController');
+     Route::get('articles/create', 'ArticlesController@create');
+});
+
 Route::get('articles/{id}', 'ArticlesController@show');
 Route::post('articles', 'ArticlesController@store');
 Route::get('articles/{id}/edit', 'ArticlesController@edit');

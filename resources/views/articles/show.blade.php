@@ -20,6 +20,7 @@
         <td>{{ $post->id }}</td>
         <td>{{ $post->body }}</td>
         <td> <a href="{{ url('/posts', $post->id) }}" class="btn btn-info">View this Post</a></td>
+       
         <td><a href="{{  route('posts.edit', $post->id) }}" class="btn btn-primary">Edit Post</a></td>
         <td>{!! Form::open( [ 'method'  => 'delete', 'route' => [ 'posts.destroy', $post->id ] ])!!}
                     {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}

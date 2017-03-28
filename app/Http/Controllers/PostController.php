@@ -38,13 +38,19 @@ class PostController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+//    
+//    
+public function store(Request $request) {
 //         Post::create($request->all());
+        $article_id = $request->all()['article_id'];
         post::create($request->all());
+        $article=Article::findOrFail($article_id);
+        $posts = post::where('article_id' , $article_id)->get()->all();
 //       Auth::user()->article()->save($article);
-       return redirect('articles');
+       return view('articles.show',['article' => $article,'posts' => $posts]);
         //return redirect()->back();
     }
+
 
     /**
      * Display the specified resource.
@@ -72,13 +78,8 @@ return view('posts.show',['post' => $post,'comments' => $comments]);
     public function update(Request $request,$id  ) {
         $post=post::findOrFail($id);
         $post->update($request->all());
-        //return redirect()->back();
         return redirect('articles');
-//        $post = post::findOrFail($id);
-//    $post->body   = Input::get('body');
-//    $post->save();
-//return redirect('articles');
-    //return Redirect::route('items.index');
+
     }
 
     /**

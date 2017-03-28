@@ -12,7 +12,8 @@
 </div>
 <div class="form-group">
 {!! Form::label('published','Published:') !!}
-{{Form::checkbox('published',1,['class'=>'form-control']) }}
+    <input type="hidden" name="published" value="0">
+    {!! Form::checkbox('published', 1, ($article->published ==1?true:0), ['class' => 'field']) !!}
 
 </div>
 <div class="form-group">

@@ -78,8 +78,9 @@ return view('posts.show',['post' => $post,'comments' => $comments]);
     public function update(Request $request,$id  ) {
         $post=post::findOrFail($id);
         $post->update($request->all());
-        return redirect('articles');
-
+        //return redirect('articles');
+         $comments = comment::where('post_id' , $id)->get()->all();
+        return view('posts.show',['post' => $post,'comments' => $comments]);
     }
 
     /**

@@ -40,17 +40,15 @@ return view('posts.show',['comment' => $comment]);
     }
 
     public function update(Request $request,$id  ) {
-               // $post_id = $request->all()['post_id'];
+        //$post_id = $request->all()['post_id'];
 
         $comment=comment::findOrFail($id);
         $comment->update($request->all());
         //$post=post::findOrFail($post_id);
-        //$comments = comment::where('post_id' , $post_id)->get()->all();
+         //$comments = comment::where('post_id' , $id)->get()->all();
        //return view('posts.show',['post' => $post,'comments' => $comments]);
-        //var_dump($comments);die;
-      return redirect('articles');
-       
 
+      return redirect('articles');
     }
 
     /**
